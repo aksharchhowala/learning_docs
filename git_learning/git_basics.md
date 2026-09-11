@@ -633,15 +633,83 @@ out put of this will look like below
 ```
 git switch <remote-branch-name>
 ```
+
 use this to create a new local branch from the remote branch with the same name.
 
 ```
 git switch puppies
 ```
- this comman makes me a local puppies branch and set it up to track the remote branch origin/puppies
+
+this comman makes me a local puppies branch and set it up to track the remote branch origin/puppies
 
 #### Create branch from remote using checkout
+
 Before switch we used to create new branch from checkout as shown below
+
 ```
 git checkout --track <remote>/<branch-name>
 ```
+
+## Fetching in Git
+
+Fetching allows us to download changes from a remote repository, But those changes will not be automatically integrated into our working files.
+
+It lets you see what other's have been working on without having to merge those changes into our local repo.
+
+Think of it as _"please go and get the latest information from GitHub, but don't screw up my working directory"_.
+
+#### Git Fetch
+
+```
+git fetch <remote>
+```
+
+This command fetches braches and history from a specific remote repository. It only updates remote tracking branches.
+
+**_git fetch origin_** would fetch all changes from the origin remote repository.
+
+## Pulling
+
+```
+git pull
+```
+
+This is another command we can use to retrieve changes from a remote repository unlike fetch, pull actually updates our HEAD branch with whatever changes are retrieved from the remote.
+
+think of it as **_"Go and download data from GitHub and immediately update my local repo with those changes"_**
+
+**_git pull = git fetch + git merge_**
+
+| git fetch                                                                      | git pull                                                                         |
+| :----------------------------------------------------------------------------- | :------------------------------------------------------------------------------- |
+| Update the remote tracking branch with the latest changes from the remote repo | Update my current branch with whatever changes are on the remote tracking branch |
+
+### Git Pull in detail
+
+To pull, we specify the particular remote and branch we want to pull using
+
+```
+git pull <remote> <branch>
+```
+
+> Just like with git merge, it matters WHERE we run this command from.
+
+Whatever branch we run it from is where the changes will be merged to.
+
+Git pull origin master would fetch the lates information from the origin's master branch and merge these changes into our current branch.
+
+### Easier Syntax!
+
+If we run **_git pull_** without specifying any particular remote or branch to pull from, git assumes the following.
+
+- Remote will default to origin.
+- Branch will default to whatever tracking configuration is configured for your current branch.
+
+> **NOTE** This behavior can be configured and tracking connection can be changed manually. Most of us don't mess with that stuff!
+
+| git fetch                                            | git pull                                                              |
+| :--------------------------------------------------- | :-------------------------------------------------------------------- |
+| Gets changes from remote branches                    | Gets changes from remote branches                                     |
+| Updates the remote-tracking branch with new changes  | Updates the current branch with the new changes merging them in local |
+| Does not merge changes onto your current HEAD branch | Can result in merge conflicts                                         |
+| Safe to do anytime                                   | Not recommended if you have uncommited changes                        |
