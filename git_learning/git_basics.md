@@ -11,8 +11,8 @@
 #### Your Identity
 
 ```
-$ git config --global user.name "Akshar Chhowala"
-$ git config --global user.email "your valid email"
+git config --global user.name "Akshar Chhowala"
+git config --global user.email "your valid email"
 ```
 
 This are used to set the username and email so that each commit has your name for other to know.
@@ -24,7 +24,7 @@ Now that your identity is set up, you need to configure the default text editor 
 If you want to use a different text editor, such as visual studio code, you can do the following setting.
 
 ```
-$ git config --global core.editor "code --wait"
+git config --global core.editor "code --wait"
 ```
 
 > <span style="color:yellow">INFO </span> In command we have use <span style="color:cyan">--wait</span> is so that the commit command will wait for you to save the message in the editor file.
@@ -36,7 +36,7 @@ By default Git will create a branch called master when you create a new reposito
 To set main as the default branch name do:
 
 ```
-$ git config --global init.defaultBranch main
+git config --global init.defaultBranch main
 ```
 
 ## Repository
@@ -48,7 +48,7 @@ $ git config --global init.defaultBranch main
 ## Git Init and Git Status
 
 ```
-$ git init
+git init
 ```
 
 Initialize the git in that folder this is done once per project
@@ -56,19 +56,19 @@ Initialize the git in that folder this is done once per project
 > **_*<span style="color:Red">Warning<span>*_** Before doing <span style="color:cyan">git init</span> always do <span style="color:cyan">git status</span>. Do not init a repo inside of a repo. Always use git status to check if the git is already present init or not
 
 ```
-$ git status
+git status
 ```
 
 use to get the status of the files and branches in the folder.
 
 ```
-$ git log
+git log
 ```
 
 This used to get the details of all the commit done on hte repo we have multiple optios to find exact which log we want we can filter the log based on user name branch etc...
 
 ```
-$ git log --oneline
+git log --oneline
 ```
 
 Gives the oneline description of all the commit
@@ -80,7 +80,7 @@ Gives the oneline description of all the commit
 - Before we can commit any changes we need to bring the files in staging mode/area we can do that using
 
 ```
-$ git add <file-name>
+git add <file-name>
 ```
 
 - This command will bring the file into staging area.
@@ -94,7 +94,7 @@ $ git add <file-name>
 #### Short hand for Git Add
 
 ```
-$ git add
+git add
 ```
 
 This command will add all the modified files in staging area.
@@ -136,7 +136,7 @@ So far, **HEAD** always points to the latest commit you made on the master branc
 ### Viewing Branches
 
 ```
-$ git branch
+git branch
 ```
 
 This is used to view your existing branches. The default branch in every git repo is master. through we can configure this as discussed previously.
@@ -148,7 +148,7 @@ Look for the \* which indicated the branch you are currently on.
 ### Creating Branch
 
 ```
-$ git branch <branch-name>
+git branch <branch-name>
 ```
 
 This is used to make a new branch based upon the current HEAD
@@ -160,7 +160,7 @@ This just creates the branch. It does not switch you to that branch (The Head st
 Once you have created a new branch, use the below comman to switch to it.
 
 ```
-$ git switch <branch-name>
+git switch <branch-name>
 ```
 
 #### Another way of switching branch
@@ -169,7 +169,7 @@ Historically, we used to switch branch using checkout command as shown below.
 This still works
 
 ```
-$ git checkout <branch-name>
+git checkout <branch-name>
 ```
 
 The _checkout_ command does a million additional things, So the dicision was made to add a standalone _switch_ command which is much simpler.
@@ -181,7 +181,7 @@ You will see older tutorials/docs using checkout rather than switch. Both are va
 Use git switch with flag -c to create a new branch AND switch to it all in one go
 
 ```
-$ git switch -c <branch-name>
+git switch -c <branch-name>
 ```
 
 > Remember -c as short for _"Create"_
@@ -198,13 +198,13 @@ $ git switch -c <branch-name>
 To delete a branch we need to use
 
 ```
-$ git branch -d <branch-name>
+git branch -d <branch-name>
 ```
 
 This will delete a branch, The branch must be fully merged in its upstream branch, or in HEAD if no upstream was set with --track or --set --upstream-to.
 
 ```
-$ git branch -D <branch-name>
+git branch -D <branch-name>
 ```
 
 > Shortcut for --delete or --force
@@ -212,7 +212,7 @@ $ git branch -D <branch-name>
 ### Rename/Move Branch
 
 ```
-$ git branch -m <branch-name>
+git branch -m <branch-name>
 ```
 
 Move/Rename a branch and the corresponding reflog.
@@ -233,8 +233,8 @@ Remember these two merging concepts:
 E.g : To merge the bugfix branch into master
 
 ```
-$ git switch main
-$ git merge bugfix
+git switch main
+git merge bugfix
 ```
 
 #### Fast Forward Merge
@@ -253,7 +253,7 @@ Whenever you encounter merge conflicts, follow these steps to resolve them:
 ### Git Diff
 
 ```
-$ git diff
+git diff
 ```
 
 We can use this command to view changes between commits, branches, files or working directory and more.
@@ -261,7 +261,7 @@ We can use this command to view changes between commits, branches, files or work
 We often use <span style="color:cyan">git diff</span> alongside commands like <span style="color:cyan">git status</span> and <span style="color:cyan">git log</span> to get better picture of a repository and how it has changed over time.
 
 ```
-$ git diff
+git diff
 ```
 
 compare staging area and working directory
@@ -269,14 +269,14 @@ compare staging area and working directory
 Without additional options, <span style="color:cyan">git diff</span> lists all the changes in out working directory that are **NOT staged** for the next commit.
 
 ```
-$ git diff head
+git diff head
 ```
 
 list all the changes in the working tree since your last commit.
 
 ```
-$ git diff --staged
-$ git diff --cached
+git diff --staged
+git diff --cached
 ```
 
 This will list the changes between the staging area and with our last commit
@@ -288,14 +288,14 @@ This will list the changes between the staging area and with our last commit
 We can view the changes within a specfile by providing a file name
 
 ```
-$ git diff head <file-name>
-$ git diff --staged <file-name>
+git diff head <file-name>
+git diff --staged <file-name>
 ```
 
 #### Comparing Branches
 
 ```
-$ git diff <branch1>..<branch2>
+git diff <branch1>..<branch2>
 ```
 
 This will list the changes between the tips of branch1 and branch2<br>
@@ -311,7 +311,7 @@ We can use space instead of two dots to sperate the branch name
 To compare two commits, provide git diff with the commit hashes of the commits in question.
 
 ```
-$ git diff <commit1> <commit2>
+git diff <commit1> <commit2>
 ```
 
 ## Git Stashing
@@ -323,7 +323,7 @@ Git stash is super usefull command that helps you save changes that you are not 
 Running Git stash will take all uncommited changes (staged or un-staged) and stash them, reverting the changes in your working copy.
 
 ```
-$ git stash
+git stash
 ```
 
 You can also use <span style="color:cyan">git stash save instead.
@@ -331,7 +331,7 @@ You can also use <span style="color:cyan">git stash save instead.
 Use <span style="color:cyan">git stash pop</span> to remove the most recently stashed changed in your stash and re-apply them to your working copy.
 
 ```
-$ git stash pop
+git stash pop
 ```
 
 #### Stash apply back
@@ -339,7 +339,7 @@ $ git stash pop
 you can use <span style="color:cyan">git stash apply</span> to apply what ever is stashed away, without removing it from the stash. This can be usefull if you want to apply stashed changes to multiple branches.
 
 ```
-$ git stash apply
+git stash apply
 ```
 
 ##### Difference between stash pop and apply
@@ -357,7 +357,7 @@ You can add multiple stashes onto the stack of stashes. They will all be stashed
 git assums you want to apply the most recent stash when you run <span style="color:cyan">git stash apply</span> but you can also specify a particular stash like
 
 ```
-$ git stsh apply stash@{2}
+git stsh apply stash@{2}
 ```
 
 #### Droping Stashes
@@ -365,7 +365,7 @@ $ git stsh apply stash@{2}
 To delete a particular stash, you can use
 
 ```
-$ git stash drop <stash-id>
+git stash drop <stash-id>
 ```
 
 ## Git Checkout
@@ -383,7 +383,7 @@ We can use checkout to create
 When we checkout a particular commit, HEAD points at that commit rather then at the branch point.
 
 ```
-$ git checkout <commit-hash>
+git checkout <commit-hash>
 ```
 
 We can have couple of options:
@@ -400,7 +400,7 @@ HEAD~2 refers to 2 commits before HEAD (Grand parent)
 This not essential, but to mention it because it's quite weird looking if you'r never seen it.
 
 ```
-$ git checkout HEAD~1
+git checkout HEAD~1
 ```
 
 ### Discarding Changes
@@ -408,7 +408,7 @@ $ git checkout HEAD~1
 Suppose you've made some changes to a file but don't want to keep them. To revert the file back to whatever it looked like when you last commited you can use:
 
 ```
-$ git checkout HEAD <file-name>
+git checkout HEAD <file-name>
 ```
 
 This will discard any changes in that file, reverling back to the HEAD
@@ -417,7 +417,7 @@ Here's **Another Option** to revert a file<br>
 Rather than typing HEAD, you can substitute **--** followed by the file name you want to restore
 
 ```
-$ git checkout -- <file-name>
+git checkout -- <file-name>
 ```
 
 ## GIT Restore
@@ -442,7 +442,7 @@ git restore <file-name>
 this restores using HEAD as the default source, but we can change that using the **_--source_** option.
 
 ```
-$ git restore --source HEAD~1 app.js
+git restore --source HEAD~1 app.js
 ```
 
 ### Unstageing files with restore
@@ -450,7 +450,7 @@ $ git restore --source HEAD~1 app.js
 If you have accidently added a file to your staging area with git add and you don;t wish to include it in the next commit, you can use git restore to remove it from staging.
 
 ```
-$ git restore --staged app.js
+git restore --staged app.js
 ```
 
 ## GIT Reset
@@ -458,7 +458,7 @@ $ git restore --staged app.js
 Suppose you've just made a couple of commit on the master branch, but you actually ment to make them on a seperate branch instead. To undo those commits, you can use
 
 ```
-$ git reset <commit-hash>
+git reset <commit-hash>
 ```
 
 this will rest the repo back to a specific commit.
@@ -470,13 +470,13 @@ this will rest the repo back to a specific commit.
 If you want to undo both the commit and the actual changes in your file, you can use the --hard option
 
 ```
-$ git reset --hard <commit-hash>
+git reset --hard <commit-hash>
 ```
 
 for example:
 
 ```
-$ git reset --hard HEAD~1
+git reset --hard HEAD~1
 ```
 
 Will delete the last commit and associted changes.
@@ -492,7 +492,7 @@ Git reset actually moves the branch pointer backwards, eliminating commits.
 Git revert instead creates a brand new commit which reverts/undos the changes from a commit. Because it results in a new commit, you will be prompted to enter a commit message.
 
 ```
-$ git revert <commit-hash>
+git revert <commit-hash>
 ```
 
 ### Q Which one to use ?
@@ -518,7 +518,7 @@ So far we've created our own git repository from scratch, but we want to get a l
 To do this, we can clone a remote hosted on GitHub or simillar websites. All we need is a URL that we can tell git to clone for use.
 
 ```
-$ git clone <http://repo-url-you-need-to-clone>
+git clone <http://repo-url-you-need-to-clone>
 ```
 
 this will clone the repo in your folder and also it will create a folder structure and default branch which will be same as that in github (if master then master or main).
@@ -526,7 +526,7 @@ this will clone the repo in your folder and also it will create a folder structu
 if you want to give your local folder a different name then do the following
 
 ```
-$ git clone <http://repo-url-you-need-to-clone> <your-folder-name>
+git clone <http://repo-url-you-need-to-clone> <your-folder-name>
 ```
 
 ### Remote
@@ -538,3 +538,98 @@ Each remote is simply a URL where a hosted repository lives.
 when we do cloning by default git creates a remote name origin for us and tracks the main/master branch for us.
 
 > NOTE While cloning all other branches and there info is also downloded but we need to add tracker for each branch will learn that later.
+
+### Viewing Remote
+
+To view any existing remote for your repository, we can run following commands
+
+```
+git remote
+git remote -v
+```
+
+here option -v stands for the verbose, for more information.
+
+This just display list of remotes. If you haven't added you wont see anything.
+
+### Adding a remote
+
+A remote is really two things
+
+1. URL
+2. Lable
+
+To add a new remote, we need to provide both to git.
+
+```
+git remote add <remote-name> <https://<path-for-the-github-repo>>
+```
+
+## Pushing code to GitHub
+
+Now that we have a remote setup, let's push some work upto GitHub! Todo this, we need to use
+
+```
+git push
+```
+
+we need to specify the remote we want to push upto and the specific local branch we want to push upto that remote.
+
+```
+git push <remote> <branch>
+```
+
+for the first time if we have not set the tracker [tracker is the relation of local branch with remote/branch]<br>We need to use comman with option -u It links your current local branch to a specific branch on the remote repository (like GitHub or GitLab). You only need to use it the very first time you push a new branch.
+
+```
+git push -u origin main
+```
+
+### Push in detail
+
+While we often want to push a local branch upto a remote branch of the same name, we don't have to!
+
+To push our local branch to a remote branch with a different name we could do
+
+```
+git push <remote> <local-branch-name>:<remote-branch-name>
+git push origin pancake:waffle
+```
+
+### The -u option in detail
+
+The **-u** option allows us to set the upstream of the branch we're pushing. You can think of this as a link connecting our local branch to a branch on GitHub
+
+Running **_git push -u origin master_** sets the upstream of the local master branch so that it taracks the master branch on the origin repository
+
+```
+git push -u origin main
+```
+
+### Remote tracking branches
+
+At the time you last communicted with this remote repository, here is where x branch was pointing.
+
+They follow this pattern \<remote>/\<branch>
+below are some examples of the remote branches
+
+- origin/master references the state of the master branch on the remote repo named master
+- upstream/logoRedesign reference the state of the logoRedesign branch on the remote named upstream.
+
+### Viewing Remote Branches
+
+Run git branch with the option -r to view the remote branches our local repository knows about
+
+```
+git branch -r
+```
+
+out put of this will look like below
+
+![remote branch example](image-2.png)
+
+### Create branch from remote
+
+```
+git switch <remote-branch-name>
+```
