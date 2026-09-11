@@ -633,3 +633,15 @@ out put of this will look like below
 ```
 git switch <remote-branch-name>
 ```
+use this to create a new local branch from the remote branch with the same name.
+
+```
+git switch puppies
+```
+ this comman makes me a local puppies branch and set it up to track the remote branch origin/puppies
+
+#### Create branch from remote using checkout
+Before switch we used to create new branch from checkout as shown below
+```
+git checkout --track <remote>/<branch-name>
+```
